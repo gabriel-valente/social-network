@@ -1,0 +1,18 @@
+.bubble {
+	width: fit-content;
+	color: white;
+	padding: 6px 13px;
+	margin-top: 5px;
+}
+
+.local {
+	margin-left: auto;
+	background-color: #3769ff;
+	border-radius: 17px 17px 0 17px;
+}
+
+.remote {
+	margin-right: auto;
+	background-color: #767676;
+	border-radius: 17px 17px 17px 0;
+}

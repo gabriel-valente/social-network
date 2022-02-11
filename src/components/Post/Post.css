@@ -1,0 +1,51 @@
+.postImageGrid {
+	width: 100%;
+	background-color: white;
+	border: 1px solid lightgray;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.postUserInfo {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin: 10px;
+}
+
+.postName {
+	margin: auto 10px;
+	cursor: pointer;
+}
+
+.postImage {
+	width: calc(100% - 2px);
+	aspect-ratio: 4 / 3;
+	margin: 1px;
+	object-fit: cover;
+}
+
+.postInputDrawer {
+	display: flex;
+}
+
+.postInputComment {
+	flex: 1;
+}
+
+.postCommentsList {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+.postComment {
+	width: auto;
+	margin: 5px 20px;
+	display: flex;
+}

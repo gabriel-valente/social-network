@@ -1,0 +1,14 @@
+.authForm {
+	height: 465px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.authInput {
+	margin-bottom: 20px;
+}
+
+.authError {
+	color: crimson;
+}

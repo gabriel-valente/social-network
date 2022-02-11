@@ -1,0 +1,35 @@
+.appMessagesBox {
+	background-color: white;
+	border: 1px solid lightgray;
+	padding: 5px;
+	height: calc(100vh - 190px);
+	max-width: 900px;
+	display: flex;
+	flex-direction: row;
+	margin: 45px auto 0px;
+}
+
+.appChatsHeader {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+	border-bottom: 1px solid lightgray;
+	height: 49px;
+}
+
+.appChats {
+	width: 250px;
+	display: flex;
+	flex-flow: column;
+}
+
+.chatsList {
+	overflow-y: auto;
+}
+
+.appCurrentChat {
+	flex: 1;
+	border-left: 1px solid lightgray;
+}

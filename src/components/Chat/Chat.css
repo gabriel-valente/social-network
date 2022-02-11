@@ -1,0 +1,37 @@
+.chat {
+	height: 100%;
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.chatUser {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.chatUser > h6 {
+	margin-left: 10px;
+}
+
+.chatMessages {
+	flex-grow: 1;
+	overflow-y: auto;
+	margin-bottom: 5px;
+}
+
+.chatBottom {
+	display: flex;
+	flex-direction: row;
+	border-top: 1px solid lightgray;
+	align-items: center;
+}
+
+.chatInput {
+	width: 100%;
+}
+
+.sendButton {
+	height: 50px;
+	width: 50px;
+}

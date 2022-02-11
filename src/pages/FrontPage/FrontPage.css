@@ -1,0 +1,32 @@
+.app {
+	background-color: #f5f5f5;
+	min-height: 100vh;
+	height: 100%;
+	width: 100vw;
+}
+
+.appContent {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+}
+
+.appLeftBox,
+.appRightBox {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: white;
+	margin: 5px;
+	border: 1px solid lightgray;
+	padding: 10px;
+}
+
+.appLogo {
+	object-fit: contain;
+	height: 30px;
+	margin-top: 20px;
+}

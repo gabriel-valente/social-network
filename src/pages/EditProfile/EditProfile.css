@@ -1,0 +1,50 @@
+.appEditProfile {
+  background-color: white;
+  border: 1px solid lightgray;
+  padding: 20px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 45px auto;
+}
+
+.appEditProfileHeader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.appEditProfileImageContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appEditProfileImage {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 25px;
+}
+
+.imageUploadButton input[type='file'] {
+  display: none;
+}
+
+.appEditProfileText {
+  width: 100%;
+  height: 100%;
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.editProfileProgress {
+  width: 100%;
+  margin: 5px auto;
+}

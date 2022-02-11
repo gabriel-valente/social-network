@@ -1,0 +1,6 @@
+.feedPosts {
+	max-width: 840px;
+	display: flex;
+	flex-direction: column;
+	margin: 20px auto;
+}

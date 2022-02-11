@@ -1,0 +1,50 @@
+.createPost {
+	background-color: white;
+	border: 1px solid lightgray;
+	padding: 20px;
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 45px auto 15px;
+}
+
+.createPostTitle {
+	font-weight: normal;
+	margin: 0;
+	text-align: center;
+	color: gray;
+}
+
+.createPostImageContainer {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.createPostImage {
+	height: auto;
+	width: 100%;
+	object-fit: cover;
+	margin: 25px auto;
+	aspect-ratio: 4/3;
+}
+
+.createPostText {
+	width: 100%;
+	height: 100%;
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+}
+
+.createPostProgress {
+	width: 100%;
+	margin: 5px auto;
+}
+
+.createPostButton {
+	width: 100%;
+}

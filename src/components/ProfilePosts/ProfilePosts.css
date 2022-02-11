@@ -1,0 +1,28 @@
+.profilePosts {
+	background-color: white;
+	border: 1px solid lightgray;
+	padding: 20px;
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 15px auto;
+}
+
+.profilePostsImageGrid {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	margin: auto;
+}
+
+.profilePostImage {
+	width: calc((100% / 3) - 2px);
+	aspect-ratio: 1;
+	margin: 1px;
+	object-fit: cover;
+	cursor: pointer;
+}
