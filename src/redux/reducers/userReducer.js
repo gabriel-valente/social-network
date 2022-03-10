@@ -46,7 +46,6 @@ export const fetchProfile = (profile) => {
 			if (doc.exists) {
 				const data = doc.data();
 				const storeData = store.getState().user.users.find((user) => user.uid === profile);
-
 				if (!storeData)
 					store.dispatch(
 						addUser({

@@ -38,7 +38,7 @@ const Header = (props) => {
 	const [searchResults, setSearchResults] = useState([]);
 	const [dropOpen, setDropOpen] = useState(false);
 	const user = JSON.parse(localStorage.getItem('authUser'));
-	var timerSearch;
+	const [timerSearch, setTimerSearch] = useState(null);
 
 	const handleSearch = () => {
 		const queryText = search.replace(/ /g, '').toLowerCase();
@@ -104,10 +104,10 @@ const Header = (props) => {
 					type='text'
 					value={search}
 					onKeyUp={(e) => {
-						clearTimeout(timerSearch);
-						if (e.target.value) timerSearch = setTimeout(() => handleSearch(), 1000);
+						setTimerSearch(clearTimeout(timerSearch));
+						if (e.target.value) setTimerSearch(setTimeout(() => handleSearch(), 1000));
 					}}
-					onKeyDown={() => clearTimeout(timerSearch)}
+					onKeyDown={() => setTimerSearch(clearTimeout(timerSearch))}
 					onChange={(e) => setSearch(e.target.value)}
 					onFocus={() => ChangeDropDownFocus()}
 					onBlur={() => ChangeDropDownFocus()}

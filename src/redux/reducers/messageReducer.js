@@ -26,16 +26,18 @@ export default function (state = initialState, action) {
 
 export const fetchChats = async () => {
 	const user = store.getState().user.authenticated;
-	const chats = [];
 	const data = await db.collection('chats').where('users', 'array-contains', user).get();
+	const temp = [];
 
 	if (!data.empty) {
+		const chats = store.getState().message.chats;
+
 		data.forEach((doc) => {
-			chats.push({ id: doc.id, ...doc.data() });
+			if (!chats.find((chat) => chat.id === doc.id)) temp.push({ id: doc.id, ...doc.data() });
 		});
 	}
 
-	const orderedChats = chats.sort((a, b) => b.lastTimestamp - a.lastTimestamp);
+	const orderedChats = temp.sort((a, b) => b.lastTimestamp - a.lastTimestamp);
 
 	store.dispatch(addChats(orderedChats));
 };

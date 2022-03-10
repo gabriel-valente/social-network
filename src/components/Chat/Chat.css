@@ -5,6 +5,26 @@
 	flex-direction: column;
 }
 
+.appChatsHeaderSearch {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+	border-bottom: 1px solid lightgray;
+	height: 49px;
+}
+
+.chatSearch {
+	width: 100%;
+}
+
+.chatNoChatSelected {
+	margin: auto;
+	font-size: large;
+	color: gray;
+}
+
 .chatUser {
 	display: flex;
 	flex-direction: row;

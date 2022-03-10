@@ -11,13 +11,14 @@ import { fetchProfile } from 'redux/reducers/userReducer';
 
 const Messages = () => {
 	var navigate = useNavigate();
-	const location = useLocation();
-	const [pageData, setPageData] = useState({});
+	const [createChat, setCreateChat] = useState(false);
 	const [chatArray, setChatArray] = useState([]);
+	let fetched = false;
 
 	useEffect(() => {
 		const handleChange = () => {
-			if (store.getState().message.chats.length === 0) {
+			if (store.getState().message.chats.length === 0 && !fetched) {
+				fetched = true;
 				fetchChats().then(() => {
 					updateChats();
 				});
@@ -66,7 +67,7 @@ const Messages = () => {
 				<div className='appChats'>
 					<div className='appChatsHeader'>
 						<Typography variant='h6'>Chats</Typography>
-						<IconButton>
+						<IconButton onClick={() => setCreateChat(true)}>
 							<ChatIcon />
 						</IconButton>
 					</div>
@@ -91,7 +92,7 @@ const Messages = () => {
 					</List>
 				</div>
 				<div className='appCurrentChat'>
-					<Chat />
+					<Chat createChat={createChat} setCreateChat={setCreateChat} />
 				</div>
 			</div>
 		</div>
