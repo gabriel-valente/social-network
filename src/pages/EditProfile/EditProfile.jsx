@@ -7,10 +7,37 @@ import UpdateProfile from 'actions/UpdateProfile';
 import store from 'redux/store';
 import { fetchProfile } from 'redux/reducers/userReducer';
 import { useNavigate } from 'react-router-dom';
+import { Typography } from '@mui/material';
 
 const useStyles = makeStyles({
 	input: {
 		marginBottom: '1rem',
+	},
+	adornment: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'flex-end',
+		alignContent: 'start',
+		height: '113px',
+		width: '67.44px',
+		marginTop: -18,
+		marginBottom: -18,
+		marginRight: -13,
+		border: '0px solid green',
+		borderRadius: '4px',
+		overflow: 'hidden',
+	},
+	counterDiv: {
+		height: '0%',
+		width: '100%',
+		borderRadius: '4px',
+		backgroundColor: '#3f51b5',
+		overflow: 'hidden',
+	},
+	counterText: {
+		textAlign: 'center',
+		color: '#FFFFFF',
+		lineHeight: '30px',
 	},
 });
 
@@ -119,39 +146,37 @@ const EditProfile = (props) => {
 							value={newData.description}
 							InputProps={{
 								endAdornment: (
-									<InputAdornment position='end'>
-										<svg
-											height='100%'
-											width='100%'
-											viewBox='0 0 20 20'
-											style={{
-												minHeight: '25px',
-												minWidth: '25px',
-												overflow: 'visible',
-											}}>
-											<circle cx='50%' cy='50%' r='10' stroke='lightgray' strokeWidth='4' fill='none' />
-											<circle
-												cx='50%'
-												cy='50%'
-												r='10'
-												stroke='#6AA2E3'
-												strokeWidth='2'
-												fill='none'
-												strokeLinecap='round'
-												style={{ strokeDashoffset: '1%', strokeDasharray: '10%' }} // FIX THIS
-											/>
-										</svg>
-									</InputAdornment>
+									<div className={classes.adornment}>
+										<div className={classes.counterDiv} id='counterDiv'>
+											<Typography className={classes.counterText} variant='body1'>
+												{newData.description.length}
+											</Typography>
+										</div>
+									</div>
 								),
 							}}
-							onChange={(e) => setNewData({ ...newData, description: e.target.value })}
+							onChange={(e) => {
+								var text = e.target.value;
+								var counter = document.getElementById('counterDiv');
+								counter.style.height = (text.length * 100) / 300 + '%';
+
+								if (text.length > 300) {
+									counter.style.backgroundColor = '#f44336';
+								} else {
+									counter.style.backgroundColor = '#3f51b5';
+								}
+								setNewData({ ...newData, description: text });
+							}}
 						/>
 						{progress > 0 && <LinearProgress className='editProfileProgress' variant='determinate' value={progress} />}
 						<Button
 							variant='contained'
 							color='primary'
 							size='large'
-							disabled={Object.entries(newData).toString() === Object.entries(profileData).toString()}
+							disabled={
+								Object.entries(newData).toString() === Object.entries(profileData).toString() ||
+								newData.description.length > 300
+							}
 							onClick={() => {
 								if (UpdateProfile({ data: newData, setProgress: setProgress }))
 									navigate({

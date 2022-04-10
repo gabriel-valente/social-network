@@ -126,7 +126,7 @@ const Profile = (props) => {
 					</div>
 				</div>
 			</div>
-			<CreatePost />
+			{authUser.uid === profileData.uid && <CreatePost />}
 			{profileData.posts?.length > 0 && <ProfilePosts posts={profileData.posts} uid={profileData.uid} />}
 		</div>
 	);

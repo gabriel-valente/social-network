@@ -19,6 +19,7 @@ import {
 	OutlinedInput,
 } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
+import logo from 'logo3.png';
 
 const useStyles = makeStyles((theme) => ({
 	floater: {
@@ -91,12 +92,7 @@ const Header = (props) => {
 
 	return (
 		<div className='header'>
-			<img
-				className='headerImage'
-				src='https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'
-				alt='logo'
-				onClick={() => navigate('/')}
-			/>
+			<img className='headerImage' src={logo} alt='logo' onClick={() => navigate('/')} />
 			<FormControl variant='outlined' size='small' placeholder='Search'>
 				<InputLabel htmlFor='input-search'>Search</InputLabel>
 				<OutlinedInput

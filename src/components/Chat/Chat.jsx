@@ -97,7 +97,6 @@ const Chat = ({ createChat, setCreateChat }) => {
 			navigate({
 				pathname: '/messages',
 			});
-			//setCreateChat(false);
 		}
 	}, [createChat]);
 
@@ -233,7 +232,7 @@ const Chat = ({ createChat, setCreateChat }) => {
 					)}
 				</div>
 			)}
-			{createChat === false || (typeof createChat === 'object' && url !== undefined) ? (
+			{(createChat === false && url !== undefined) || (typeof createChat === 'object' && url !== undefined) ? (
 				<>
 					<div className='appChatsHeader'>
 						<div className='chatUser'>
@@ -277,7 +276,7 @@ const Chat = ({ createChat, setCreateChat }) => {
 					</div>
 				</>
 			) : (
-				<Typography className={classes.notSelected}>Select a chat to start</Typography>
+				<Typography className={classes.notSelected}>Select a chat or create a new one to start</Typography>
 			)}
 		</div>
 	);

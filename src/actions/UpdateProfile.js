@@ -51,23 +51,16 @@ const UpdateProfile = (props) => {
 							.then((url) => {
 								const currentUser = getAuth().currentUser; // Get current user
 								setProgress(0); // Reset progress
-
+								console.log(currentUser);
 								// Check if the file is in the app database and not anywhere else
 								if (
+									currentUser.photoURL !== null &&
 									currentUser.photoURL.includes(
 										'https://firebasestorage.googleapis.com/v0/b/socialnetwork-73196.appspot.com/o/profile%2F'
 									)
 								) {
 									// Delete old image
-									storage
-										.refFromURL(currentUser.photoURL)
-										.delete()
-										.then(() => {
-											console.log('Old image deleted');
-										})
-										.catch((error) => {
-											console.log(error);
-										});
+									storage.refFromURL(currentUser.photoURL).delete().then();
 								}
 
 								// Update profile

@@ -12,6 +12,9 @@
 }
 
 .headerImage {
+	height: 30px;
+	margin-top: auto;
+	margin-bottom: auto;
 	object-fit: contain;
 	cursor: pointer;
 }

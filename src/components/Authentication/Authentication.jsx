@@ -16,10 +16,10 @@ const Authentication = (props) => {
 	const classes = useStyles();
 	const [authType, setAuthType] = useState('Login');
 	const [form, setForm] = useState({
-		name: 'Gabriel',
-		username: 'Muhdo',
-		email: 'gabrielmcv1@gmail.com',
-		password: '123456GaB@',
+		name: '',
+		username: '',
+		email: '',
+		password: '',
 	});
 	const [error, setError] = useState('');
 
@@ -60,9 +60,9 @@ const Authentication = (props) => {
 					</Button>
 					<p>
 						Don't have an account?{' '}
-						<button className='link-button' onClick={() => setAuthType('Register')}>
+						<a href='#' className='link-button' onClick={() => setAuthType('Register')}>
 							Register Here
-						</button>
+						</a>
 						.
 					</p>
 				</form>
@@ -110,14 +110,19 @@ const Authentication = (props) => {
 						type='submit'
 						variant='contained'
 						color='primary'
-						onClick={(e) => setError(Register(e, form))}>
+						onClick={async (e) => {
+							console.log('a');
+							await Register(e, form).then((res) => {
+								setError(res);
+							});
+						}}>
 						Register
 					</Button>
 					<p>
 						Already have an account?{' '}
-						<button className='link-button' onClick={() => setAuthType('Login')}>
+						<a href='#' className='link-button' onClick={() => setAuthType('Login')}>
 							Log in Here
-						</button>
+						</a>
 						.
 					</p>
 				</form>
